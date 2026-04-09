@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Item - Campus Hunt</title>
+    <meta name="description" content="Report a lost or found item to help reunite it with its owner.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="20" r="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <path d="M12 42 C12 42 18 35 25 35 C32 35 38 42 38 42" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Campus Hunt</span>
+            </a>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#lost" class="nav-link">Lost Items</a></li>
+                    <li><a href="index.html#found" class="nav-link">Found Items</a></li>
+                    <li><a href="forum.html" class="nav-link">Forum</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="report-page">
+        <div class="report-container">
+            <div class="report-header">
+                <h1 class="report-title">Report an Item</h1>
+                <p class="report-subtitle">Help reunite someone with their belongings</p>
+            </div>
+            
+            <form id="report-form" class="report-form">
+                <div class="form-row">
+                    <label class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Report Type
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-card">
+                            <input type="radio" name="report-type" value="lost" checked>
+                            <span class="radio-content">
+                                <span class="radio-emoticon">T_T</span>
+                                I Lost Something
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="report-type" value="found">
+                            <span class="radio-content">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                                I Found Something
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label for="item-name" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Item Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="item-name" 
+                        name="item-name" 
+                        class="form-input" 
+                        placeholder="e.g., Blue Water Bottle, MacBook Pro" 
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="category" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                        Category
+                    </label>
+                    <select id="category" name="category" class="form-input" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing & Accessories</option>
+                        <option value="books">Books & Supplies</option>
+                        <option value="keys">Keys & Wallets</option>
+                        <option value="sports">Sports & Recreation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="location" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Location
+                    </label>
+                    <input 
+                        type="text" 
+                        id="location" 
+                        name="location" 
+                        class="form-input" 
+                        placeholder="Where was it lost/found?" 
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="date" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Date
+                    </label>
+                    <input 
+                        type="date" 
+                        id="date" 
+                        name="date" 
+                        class="form-input" 
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="description" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Description
+                    </label>
+                    <textarea 
+                        id="description" 
+                        name="description" 
+                        class="form-input" 
+                        placeholder="Describe your item in detail (color, brand, distinguishing features, serial numbers...)" 
+                        rows="4" 
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Email
+                    </label>
+                    <input 
+                        type="email" 
+                        id="contact" 
+                        name="contact" 
+                        class="form-input" 
+                        placeholder="your.email@university.edu" 
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="phone" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                        Mobile Number
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        class="form-input" 
+                        placeholder="XXXXXXXXXX"
+                        required
+                        maxlength="10"
+                        minlength="10"
+                        pattern="[0-9]{10}"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                    >
+                    <div class="input-hint">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Enter exactly 10 digits
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        Upload Image
+                    </label>
+                    <div class="file-upload">
+                        <input 
+                            type="file" 
+                            id="image" 
+                            name="image" 
+                            class="file-upload-input" 
+                            accept="image/*"
+                            onchange="prevImg(this)"
+                        >
+                        <label for="image" class="file-upload-label">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span class="file-upload-text">Choose an image or drag it here</span>
+                            <span class="file-upload-hint">PNG, JPG up to 5MB</span>
+                        </label>
+                    </div>
+                    <div id="image-preview" class="image-preview">
+                        <img id="preview-img" src="" alt="Preview">
+                        <button type="button" id="remove-image-btn" class="image-preview-remove">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit" id="submit-btn">
+                    <span class="btn-text">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        Submit Report
+                    </span>
+                    <span class="btn-loading">Submitting...</span>
+                </button>
+            </form>
+            
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

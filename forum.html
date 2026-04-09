@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Campus Hunt</title>
+    <meta name="description" content="Chat with others about lost and found items on Campus Hunt.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="20" r="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <path d="M12 42 C12 42 18 35 25 35 C32 35 38 42 38 42" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Campus Hunt</span>
+            </a>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#lost" class="nav-link">Lost Items</a></li>
+                    <li><a href="index.html#found" class="nav-link">Found Items</a></li>
+                    <li><a href="forum.html" class="nav-link active">Forum</a></li>
+                    <li><a href="report.html" class="nav-link">Report Item</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="forum-page">
+        <div class="forum-container">
+            <div class="forum-header">
+                <h1 class="forum-title">Messages</h1>
+                <p class="forum-subtitle">Chat with others about lost and found items</p>
+            </div>
+            
+            <div class="forum-disclaimer">
+                <div class="disclaimer-banner">
+                    <svg class="disclaimer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>These chats are public and monitored. If any user is found violating rules, severe action will be taken.</span>
+                </div>
+                <div class="forum-rules">
+                    <h3>Community Rules:</h3>
+                    <ol>
+                        <li>Be respectful and courteous to all users</li>
+                        <li>No spamming or irrelevant messages</li>
+                        <li>Keep discussions relevant to lost and found items</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="forum-content">
+                <div class="thread-list">
+                    <div class="thread-list-header">
+                        <h2 class="thread-list-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            Conversations
+                        </h2>
+                    </div>
+                    <div class="thread-items" id="thread-list-items">
+                        <div class="thread-empty">
+                            <p>No conversations yet.</p>
+                            <p style="font-size: 0.85rem; margin-top: 0.5rem;">Start by clicking "Chat" on any item.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-panel" id="chat-panel">
+                    <div class="chat-header" id="chat-header">
+                    </div>
+                    
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="chat-no-thread">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <p>Select a conversation to start chatting</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <div class="chat-meeting-suggestion">
+                            <input 
+                                type="text" 
+                                id="chat-meeting-input" 
+                                class="chat-meeting-input" 
+                                placeholder="Suggest a meeting place (optional)"
+                            >
+                        </div>
+                        <div class="chat-input-wrapper">
+                            <textarea 
+                                id="chat-message-input" 
+                                class="chat-input" 
+                                placeholder="Type your message..."
+                                rows="1"
+                            ></textarea>
+                            <button id="chat-send-btn" class="chat-send-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                </svg>
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-brand">
+            <svg class="footer-logo" viewBox="0 0 50 50" fill="none">
+                <circle cx="25" cy="20" r="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                <path d="M12 42 C12 42 18 35 25 35 C32 35 38 42 38 42" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="footer-text">Campus Hunt</span>
+        </div>
+        <p class="footer-tagline">Reuniting campus, one item at a time.</p>
+        <p class="footer-copyright">&copy; 2026 Campus Hunt. Built for the community.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

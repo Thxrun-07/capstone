@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Campus Hunt</title>
+    <meta name="description" content="View your profile and reported items on Campus Hunt.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="20" r="8" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                    <path d="M12 42 C12 42 18 35 25 35 C32 35 38 42 38 42" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <span class="logo-text">Campus Hunt</span>
+            </a>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#lost" class="nav-link">Lost Items</a></li>
+                    <li><a href="index.html#found" class="nav-link">Found Items</a></li>
+                    <li><a href="forum.html" class="nav-link">Forum</a></li>
+                    <li><a href="report.html" class="nav-link">Report Item</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="top-loading-bar" class="top-loading-bar"></div>
+
+    <main class="profile-page">
+        <div class="profile-container">
+            <div class="profile-header glass">
+                <div class="profile-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name" id="profile-name">Loading...</h1>
+                    <div class="profile-details">
+                        <div class="profile-detail-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                            <span id="profile-regno">-</span>
+                        </div>
+                        <div class="profile-detail-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span id="profile-email">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="profile-items-section">
+                <div class="profile-items-header">
+                    <h2 class="section-title">My Reported Items</h2>
+                    <a href="report.html" class="btn-report-item">+ Report Item</a>
+                </div>
+                <div id="profile-items-grid" class="items-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
